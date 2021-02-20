@@ -9,9 +9,7 @@ const app = express();
 require("./controllers/routes")(app);
 
 // Error 404
-app.use(function (req, res) {
-	return res.sendStatus(404);
-});
+app.use((req, res) => res.sendStatus(404));
 
 // Listening
 const port = process.env.APP_PORT;
