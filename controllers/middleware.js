@@ -1,6 +1,4 @@
 const parseParameters = (req, res, next) => {
-	const query = req.query;
-
 	if (!req.query.stock && !req.query.exchange) {
 		return res.json({
 			message: "Welcome. Make sure to read the README.md file and follow the instructions.",
@@ -11,8 +9,7 @@ const parseParameters = (req, res, next) => {
 		})
 	}
 	else if (!req.query.stocks || !req.query.exchange) {
-		return res.json({
-			status: 422,
+		return res.status(422).json({
 			message: "Invalid parameters"
 		});
 	}
